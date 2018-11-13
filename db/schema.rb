@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140927192104) do
 
-  create_table "order_items", force: true do |t|
+  create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "order_id"
     t.decimal  "unit_price",  precision: 12, scale: 3
@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 20140927192104) do
   add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
   add_index "order_items", ["product_id"], name: "index_order_items_on_product_id"
 
-  create_table "order_statuses", force: true do |t|
+  create_table "order_statuses", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "orders", force: true do |t|
+  create_table "orders", force: :cascade do |t|
     t.decimal  "subtotal",        precision: 12, scale: 3
     t.decimal  "tax",             precision: 12, scale: 3
     t.decimal  "shipping",        precision: 12, scale: 3
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140927192104) do
 
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
 
-  create_table "products", force: true do |t|
+  create_table "products", force: :cascade do |t|
     t.string   "name"
     t.decimal  "price",      precision: 12, scale: 3
     t.boolean  "active"

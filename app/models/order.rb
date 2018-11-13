@@ -15,4 +15,5 @@ private
   def update_subtotal
     self[:subtotal] = subtotal
   end
+
 end

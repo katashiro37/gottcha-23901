@@ -1,1 +1,9 @@
+<%#= debug @cart %>
+
 <%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link" %>
+
+
+<% if @orders.present? %>
+  <%= link_to "Checkout", paypal(products_url), class: "btn btn-info btn-large" %>
+<% end %>
+
